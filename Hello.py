@@ -36,23 +36,16 @@ def display_news(news_list, articles_per_page):
     for news in news_list:
         c += 1
         streamlit.write('**({}) {}**'.format(c, news['title']))
-        news_data = Article(news['url'])
-        try:
-            news_data.download()
-            news_data.parse()
-            news_data.nlp()
-        except Exception as e:
-            print(e)
-        with streamlit.expander(news['title']):
-            if news['author']:
-                streamlit.write(news['author'])
-            streamlit.markdown(
-                '''<h6 style="text-align: justify;">{}</h6>'''.format(news['description']),
-                unsafe_allow_html=True
-            )
-            if news['urlToImage']:
-                streamlit.image(news['urlToImage'])
-            streamlit.markdown("[Baca Selengkapnya {}...]({})".format(news['source']['name'], news['url']))
+        streamlit.expander(news['title'])
+        if news['author']:
+            streamlit.write(news['author'])
+        streamlit.markdown(
+            '''<h6 style="text-align: justify;">{}</h6>'''.format(news['description']),
+            unsafe_allow_html=True
+        )
+        if news['urlToImage']:
+            streamlit.image(news['urlToImage'])
+        streamlit.markdown("[Baca Selengkapnya {}...]({})".format(news['source']['name'], news['url']))
         streamlit.success("Tanggal Terbit: " + news['publishedAt'])
         if c >= articles_per_page:
             break
