@@ -47,10 +47,9 @@ def display_news(news_list, articles_per_page):
             if news['author']:
                 streamlit.write(news['author'])
             streamlit.markdown(
-                '''<h6 style="text-align: justify;">{}</h6>'''.format(news['description']),
+                '''<h6 style="text-align: justify;">{}</h6>'''.format(news_data.summary),
                 unsafe_allow_html=True
             )
-            streamlit.write(news['description'])
             if news['urlToImage']:
                 streamlit.image(news['urlToImage'])
             streamlit.markdown("[Baca Selengkapnya {}...]({})".format(news['source']['name'], news['url']))
