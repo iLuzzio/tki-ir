@@ -4,3 +4,4 @@ pandas
 pydeck
 streamlit
 newspaper3k
+pycountry
