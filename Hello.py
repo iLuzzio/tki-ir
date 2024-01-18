@@ -2,7 +2,7 @@ import streamlit
 from newspaper import Article
 import requests
 
-streamlit.set_page_config(page_title='Cari Berita Terkini')
+streamlit.set_page_config(page_title='KASIH NAMA WEB')
 
 apiKey = 'd9addde433a74562aa80be87342bb984'
 
@@ -58,7 +58,7 @@ def display_news(news_list, articles_per_page):
             break
 
 def run():
-    streamlit.title("Cari Berita Terkini")
+    streamlit.title("KASIH NAMA WEB")
     category = ['Pilihan Kategori', 'Artikel Teratas', 'Cari Artikel']
     category_options = streamlit.selectbox('Pilih Kategori', category)
 
