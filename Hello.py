@@ -47,7 +47,7 @@ def display_news(news_list, articles_per_page):
             if news['author']:
                 streamlit.write(news['author'])
             streamlit.markdown(
-                '''<h6 style="text-align: justify;">{}</h6>'''.format(news_data.summary),
+                '''<h6 style="text-align: justify;">{}</h6>'''.format(news['description']),
                 unsafe_allow_html=True
             )
             if news['urlToImage']:
